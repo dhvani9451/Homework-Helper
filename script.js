@@ -5,22 +5,22 @@ class HomeworkHelper {
         this.chatForm = document.getElementById('chatForm');
         this.messageInput = document.getElementById('messageInput');
         this.sendButton = document.getElementById('sendButton');
-        
+
         this.init();
     }
-    
+
     init() {
         // Bind event listeners
         this.chatForm.addEventListener('submit', (e) => this.handleSubmit(e));
         this.messageInput.addEventListener('keypress', (e) => this.handleKeyPress(e));
-        
+
         // Focus input on load
         this.messageInput.focus();
-        
+
         // Add subject card click handlers
         this.setupSubjectCards();
     }
-    
+
     setupSubjectCards() {
         const subjectCards = document.querySelectorAll('.subject-card');
         subjectCards.forEach(card => {
@@ -31,46 +31,46 @@ class HomeworkHelper {
             });
         });
     }
-    
+
     handleKeyPress(e) {
         if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault();
             this.handleSubmit(e);
         }
     }
-    
+
     async handleSubmit(e) {
         e.preventDefault();
-        
+
         const message = this.messageInput.value.trim();
         if (!message) return;
-        
+
         // Clear input and disable form
         this.messageInput.value = '';
         this.setLoading(true);
-        
+
         // Hide welcome message if it exists
         this.hideWelcomeMessage();
-        
+
         // Add user message
         this.addMessage(message, 'user');
-        
+
         // Add loading message
         const loadingId = this.addLoadingMessage();
-        
+
         try {
-            // Simulate API call (replace with actual API endpoint)
+            //  Actual API call
             const response = await this.getAIResponse(message);
-            
+
             // Remove loading message
             this.removeMessage(loadingId);
-            
+
             // Add AI response
             this.addMessage(response, 'assistant');
         } catch (error) {
             // Remove loading message
             this.removeMessage(loadingId);
-            
+
             // Add error message
             this.addMessage('Sorry, I encountered an error. Please try again.', 'assistant');
             console.error('Error:', error);
@@ -78,25 +78,25 @@ class HomeworkHelper {
             this.setLoading(false);
         }
     }
-    
+
     hideWelcomeMessage() {
         const welcomeMessage = document.querySelector('.welcome-message');
         if (welcomeMessage) {
             welcomeMessage.style.display = 'none';
         }
     }
-    
+
     addMessage(content, type) {
         const messageDiv = document.createElement('div');
         messageDiv.className = `message ${type}`;
         messageDiv.textContent = content;
-        
+
         this.chatMessages.appendChild(messageDiv);
         this.scrollToBottom();
-        
+
         return messageDiv;
     }
-    
+
     addLoadingMessage() {
         const messageDiv = document.createElement('div');
         messageDiv.className = 'message loading';
@@ -107,23 +107,23 @@ class HomeworkHelper {
                 <span></span>
             </div>
         `;
-        
+
         this.chatMessages.appendChild(messageDiv);
         this.scrollToBottom();
-        
+
         return messageDiv;
     }
-    
+
     removeMessage(messageElement) {
         if (messageElement && messageElement.parentNode) {
             messageElement.parentNode.removeChild(messageElement);
         }
     }
-    
+
     setLoading(isLoading) {
         this.sendButton.disabled = isLoading;
         this.messageInput.disabled = isLoading;
-        
+
         if (isLoading) {
             this.sendButton.style.opacity = '0.5';
         } else {
@@ -131,24 +131,44 @@ class HomeworkHelper {
             this.messageInput.focus();
         }
     }
-    
+
     scrollToBottom() {
         this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
     }
-    
-    // Simulate AI response - replace with actual API call
+
+    //  Actual API call
     async getAIResponse(message) {
-        // Simulate network delay
-        await new Promise(resolve => setTimeout(resolve, 1000 + Math.random() * 2000));
-        
-        // Simple response logic (replace with actual AI API)
-        const responses = this.generateResponse(message);
-        return responses[Math.floor(Math.random() * responses.length)];
+        try {
+            const response = await fetch('YOUR_API_ENDPOINT', {  // Replace with your Flask API endpoint
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ question: message }) // Send the message as JSON
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            const data = await response.json();
+
+            if (data.answer) {
+                return data.answer;  // Return the answer from the API
+            } else if (data.error) {
+                return `Error from AI: ${data.error}`; // Return the error message
+            } else {
+                return "Sorry, I couldn't get a response from the AI.";
+            }
+        } catch (error) {
+            console.error('Error fetching AI response:', error);
+            return "Sorry, I encountered an error. Please try again."; // Generic error message
+        }
     }
-    
+
     generateResponse(message) {
         const lowerMessage = message.toLowerCase();
-        
+
         // Math responses
         if (lowerMessage.includes('math') || lowerMessage.includes('algebra') || lowerMessage.includes('equation')) {
             return [
@@ -157,7 +177,7 @@ class HomeworkHelper {
                 "Great! I love helping with math. Whether it's algebra, geometry, or calculus, I'm here to guide you through it."
             ];
         }
-        
+
         // Science responses
         if (lowerMessage.includes('science') || lowerMessage.includes('chemistry') || lowerMessage.includes('physics') || lowerMessage.includes('biology')) {
             return [
@@ -166,7 +186,7 @@ class HomeworkHelper {
                 "Let's explore this scientific concept together. Can you tell me more about what you're studying?"
             ];
         }
-        
+
         // History responses
         if (lowerMessage.includes('history') || lowerMessage.includes('historical')) {
             return [
@@ -175,7 +195,7 @@ class HomeworkHelper {
                 "Historical context is so important. What aspect of history are you exploring?"
             ];
         }
-        
+
         // Literature responses
         if (lowerMessage.includes('literature') || lowerMessage.includes('book') || lowerMessage.includes('reading') || lowerMessage.includes('essay')) {
             return [
@@ -184,7 +204,7 @@ class HomeworkHelper {
                 "Great choice focusing on literature! What specific aspect of the text are you analyzing?"
             ];
         }
-        
+
         // General helpful responses
         return [
             "I'm here to help you learn! Can you tell me more about what you're working on?",
