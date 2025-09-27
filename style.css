@@ -1,75 +1,86 @@
-/* Design System Variables */
+/* Modern Design System Variables */
 :root {
-    /* Educational theme - warm blues and academic colors */
-    --background: hsl(240, 100%, 99%);
-    --foreground: hsl(230, 15%, 15%);
+    /* Modern neutral base */
+    --background: hsl(0, 0%, 100%);
+    --foreground: hsl(240, 10%, 3.9%);
     
     --card: hsl(0, 0%, 100%);
-    --card-foreground: hsl(230, 15%, 15%);
+    --card-foreground: hsl(240, 10%, 3.9%);
     
-    /* Educational blue as primary */
-    --primary: hsl(217, 91%, 60%);
+    /* Modern vibrant primary - Electric Blue */
+    --primary: hsl(221, 83%, 53%);
     --primary-foreground: hsl(0, 0%, 100%);
+    --primary-glow: hsl(221, 83%, 65%);
     
-    /* Soft gray for secondary elements */
-    --secondary: hsl(220, 14%, 96%);
-    --secondary-foreground: hsl(230, 15%, 25%);
+    /* Sophisticated secondary */
+    --secondary: hsl(210, 40%, 98%);
+    --secondary-foreground: hsl(222.2, 84%, 4.9%);
     
-    --muted: hsl(220, 14%, 96%);
-    --muted-foreground: hsl(215, 16%, 47%);
+    --muted: hsl(210, 40%, 96%);
+    --muted-foreground: hsl(215.4, 16.3%, 46.9%);
     
-    /* Helpful green accent */
-    --accent: hsl(142, 76%, 36%);
+    /* Modern vibrant accent - Electric Purple */
+    --accent: hsl(262, 83%, 58%);
     --accent-foreground: hsl(0, 0%, 100%);
+    --accent-glow: hsl(262, 83%, 70%);
     
-    --border: hsl(220, 13%, 91%);
-    --input: hsl(220, 13%, 91%);
+    --border: hsl(214.3, 31.8%, 91.4%);
+    --input: hsl(214.3, 31.8%, 91.4%);
     
-    /* Educational gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(217, 91%, 60%), hsl(230, 80%, 65%));
-    --gradient-accent: linear-gradient(135deg, hsl(142, 76%, 36%), hsl(160, 70%, 40%));
-    --gradient-background: linear-gradient(180deg, hsl(240, 100%, 99%), hsl(220, 30%, 98%));
+    /* Modern gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(221, 83%, 53%), hsl(262, 83%, 58%));
+    --gradient-accent: linear-gradient(135deg, hsl(262, 83%, 58%), hsl(300, 83%, 60%));
+    --gradient-background: linear-gradient(180deg, hsl(0, 0%, 100%), hsl(210, 40%, 98%));
+    --gradient-hero: linear-gradient(135deg, hsl(221, 83%, 53%) 0%, hsl(262, 83%, 58%) 50%, hsl(300, 83%, 60%) 100%);
     
-    /* Educational shadows */
-    --shadow-soft: 0 4px 20px -4px hsl(217, 91%, 60%, 0.1);
-    --shadow-message: 0 2px 8px -2px hsl(217, 91%, 60%, 0.08);
+    /* Modern shadows with color */
+    --shadow-soft: 0 10px 30px -10px hsl(221, 83%, 53%, 0.15);
+    --shadow-message: 0 4px 16px -4px hsl(221, 83%, 53%, 0.1);
+    --shadow-glow: 0 0 40px hsl(221, 83%, 53%, 0.2);
+    --shadow-accent: 0 8px 25px -8px hsl(262, 83%, 58%, 0.3);
     
     /* Smooth transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 }
 
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
     :root {
-        --background: hsl(230, 25%, 8%);
-        --foreground: hsl(220, 14%, 96%);
+        --background: hsl(222.2, 84%, 4.9%);
+        --foreground: hsl(210, 40%, 98%);
         
-        --card: hsl(230, 25%, 10%);
-        --card-foreground: hsl(220, 14%, 96%);
+        --card: hsl(222.2, 84%, 4.9%);
+        --card-foreground: hsl(210, 40%, 98%);
         
-        --primary: hsl(217, 91%, 65%);
-        --primary-foreground: hsl(230, 25%, 8%);
+        --primary: hsl(221, 83%, 60%);
+        --primary-foreground: hsl(210, 40%, 98%);
+        --primary-glow: hsl(221, 83%, 70%);
         
-        --secondary: hsl(230, 20%, 14%);
-        --secondary-foreground: hsl(220, 14%, 90%);
+        --secondary: hsl(217.2, 32.6%, 17.5%);
+        --secondary-foreground: hsl(210, 40%, 98%);
         
-        --muted: hsl(230, 20%, 14%);
-        --muted-foreground: hsl(215, 20%, 65%);
+        --muted: hsl(217.2, 32.6%, 17.5%);
+        --muted-foreground: hsl(215, 20.2%, 65.1%);
         
-        --accent: hsl(142, 76%, 40%);
-        --accent-foreground: hsl(230, 25%, 8%);
+        --accent: hsl(262, 83%, 65%);
+        --accent-foreground: hsl(210, 40%, 98%);
+        --accent-glow: hsl(262, 83%, 75%);
         
-        --border: hsl(230, 20%, 18%);
-        --input: hsl(230, 20%, 18%);
+        --border: hsl(217.2, 32.6%, 17.5%);
+        --input: hsl(217.2, 32.6%, 17.5%);
         
-        --gradient-primary: linear-gradient(135deg, hsl(217, 91%, 65%), hsl(230, 80%, 70%));
-        --gradient-accent: linear-gradient(135deg, hsl(142, 76%, 40%), hsl(160, 70%, 45%));
-        --gradient-background: linear-gradient(180deg, hsl(230, 25%, 8%), hsl(230, 20%, 12%));
+        --gradient-primary: linear-gradient(135deg, hsl(221, 83%, 60%), hsl(262, 83%, 65%));
+        --gradient-accent: linear-gradient(135deg, hsl(262, 83%, 65%), hsl(300, 83%, 70%));
+        --gradient-background: linear-gradient(180deg, hsl(222.2, 84%, 4.9%), hsl(217.2, 32.6%, 17.5%));
+        --gradient-hero: linear-gradient(135deg, hsl(221, 83%, 60%) 0%, hsl(262, 83%, 65%) 50%, hsl(300, 83%, 70%) 100%);
         
-        --shadow-soft: 0 4px 20px -4px hsl(0, 0%, 0%, 0.3);
-        --shadow-message: 0 2px 8px -2px hsl(0, 0%, 0%, 0.2);
+        --shadow-soft: 0 10px 30px -10px hsl(0, 0%, 0%, 0.4);
+        --shadow-message: 0 4px 16px -4px hsl(0, 0%, 0%, 0.25);
+        --shadow-glow: 0 0 40px hsl(221, 83%, 60%, 0.3);
+        --shadow-accent: 0 8px 25px -8px hsl(262, 83%, 65%, 0.4);
     }
 }
 
@@ -101,13 +112,15 @@ body {
 
 /* Header */
 .chat-header {
-    background: var(--gradient-primary);
+    background: var(--gradient-hero);
     color: var(--primary-foreground);
     padding: 2rem 1.5rem;
     text-align: center;
     position: sticky;
     top: 0;
     z-index: 10;
+    box-shadow: var(--shadow-glow);
+    backdrop-filter: blur(10px);
 }
 
 .header-content h1 {
@@ -186,13 +199,32 @@ body {
     padding: 1rem;
     background: var(--secondary);
     border-radius: var(--radius);
-    transition: var(--transition-smooth);
+    transition: var(--transition-spring);
     cursor: pointer;
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+}
+
+.subject-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(221, 83%, 53%, 0.1), transparent);
+    transition: var(--transition-smooth);
 }
 
 .subject-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-message);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: var(--shadow-accent);
+    border-color: var(--accent);
+}
+
+.subject-card:hover::before {
+    left: 100%;
 }
 
 .subject-icon {
@@ -222,10 +254,11 @@ body {
 }
 
 .message.user {
-    background: var(--primary);
+    background: var(--gradient-primary);
     color: var(--primary-foreground);
     align-self: flex-end;
     margin-left: auto;
+    box-shadow: var(--shadow-glow);
 }
 
 .message.assistant {
@@ -277,20 +310,38 @@ body {
 
 .send-button {
     padding: 0.75rem;
-    background: var(--primary);
+    background: var(--gradient-primary);
     color: var(--primary-foreground);
     border: none;
     border-radius: var(--radius);
     cursor: pointer;
-    transition: var(--transition-smooth);
+    transition: var(--transition-spring);
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: var(--shadow-accent);
+    position: relative;
+    overflow: hidden;
+}
+
+.send-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, hsl(262, 83%, 58%, 0.3), transparent);
+    transition: var(--transition-smooth);
 }
 
 .send-button:hover {
-    background: hsl(217, 91%, 55%);
-    transform: translateY(-1px);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: var(--shadow-glow);
+}
+
+.send-button:hover::before {
+    left: 100%;
 }
 
 .send-button:disabled {
