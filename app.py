@@ -11,7 +11,7 @@ load_dotenv()
 app = Flask(__name__)
 CORS(app)
 
-client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+client = genai.Client(api_key=os.getenv("AIzaSyAhb8FWmCiacsB60YbkDnLXC071ZFcObJs"))
 
 # Detect math expressions quickly
 def is_math(text):
@@ -60,3 +60,4 @@ def ask():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
