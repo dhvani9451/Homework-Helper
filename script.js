@@ -139,7 +139,7 @@ class HomeworkHelper {
     //  Actual API call
     async getAIResponse(message) {
         try {
-            const response = await fetch('YOUR_API_ENDPOINT', {  // Replace with your Flask API endpoint
+            const response = await fetch('https://homework-helper-zmha.onrender.com/ask', {  // Replace with your Flask API endpoint
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
