@@ -1,4 +1,6 @@
 // Homework Helper Chat Application
+import { marked } from 'marked'; // Import the marked library
+
 class HomeworkHelper {
     constructor() {
         this.chatMessages = document.getElementById('chatMessages');
@@ -89,7 +91,7 @@ class HomeworkHelper {
     addMessage(content, type) {
         const messageDiv = document.createElement('div');
         messageDiv.className = `message ${type}`;
-        messageDiv.textContent = content;
+        messageDiv.innerHTML = marked(content);  // Use marked to render Markdown
 
         this.chatMessages.appendChild(messageDiv);
         this.scrollToBottom();
