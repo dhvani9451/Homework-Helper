@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework Helper - AI Tutor</title>
+    <meta name="description" content="Get instant help with your homework from our AI tutor">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="chat-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo-icon">🚀</div>
+                    <h1>Homework Helper</h1>
+                </div>
+                <p class="header-subtitle">Your AI-powered study companion</p>
+            </div>
+        </header>
+
+        <!-- Chat Container -->
+        <main class="chat-container">
+            <div class="chat-messages" id="chatMessages">
+                <!-- Welcome Message -->
+                <div class="welcome-message">
+                    <div class="welcome-icon">🎓</div>
+                    <h2>Welcome to your AI Homework Helper!</h2>
+                    <p>I'm here to help you understand concepts, solve problems, and learn effectively. Ask me anything about:</p>
+                    <div class="subject-grid">
+                        <div class="subject-card">
+                            <span class="subject-icon">📐</span>
+                            <span>Math & Algebra</span>
+                        </div>
+                        <div class="subject-card">
+                            <span class="subject-icon">🔬</span>
+                            <span>Science</span>
+                        </div>
+                        <div class="subject-card">
+                            <span class="subject-icon">📖</span>
+                            <span>Literature</span>
+                        </div>
+                        <div class="subject-card">
+                            <span class="subject-icon">🌍</span>
+                            <span>History</span>
+                        </div>
+                    </div>
+                    <p class="welcome-footer">Type your question below to get started!</p>
+                </div>
+            </div>
+
+            <!-- Chat Input -->
+            <div class="chat-input-container">
+                <form class="chat-input-form" id="chatForm">
+                    <div class="input-wrapper">
+                        <input 
+                            type="text" 
+                            id="messageInput"
+                            placeholder="Ask me anything about your homework..."
+                            class="message-input"
+                            autocomplete="off"
+                        >
+                        <button type="submit" class="send-button" id="sendButton">
+                            <svg class="send-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="m22 2-7 20-4-9-9-4Z"/>
+                                <path d="M22 2 11 13"/>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div>
+     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
